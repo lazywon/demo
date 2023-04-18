@@ -10,5 +10,9 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "users": [
+    { "user_id": "test1", "user_name": "테스트1" },
+    { "user_id": "test2", "user_name": "테스트2" }
+  ],
 }
