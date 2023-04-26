@@ -12,13 +12,20 @@ app.use(bodyParser.json());
 
 // /auth/login 경로에 대한 POST 요청 처리
 app.post("/auth/login", (req, res) => {
-  const { email, password } = req.body;
+  const { userid, password } = req.body;
 
-  // email과 passsword 검증
-  if (email === "user1@test.com" && password === "Password1!") {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+
+  console.log(userid);
+  console.log(password);
+
+  // userid와 passsword 검증
+  if (userid === "user1@test.com" && password === "Password1!") {
     // JWT 토큰 생성
-    const token = jwt.sign({ email }, SECRET_KEYS);
+    const token = jwt.sign({ userid }, SECRET_KEYS);
     const msg = "login success";
+
     res.json({ msg, token });
 
     // users.json 파일 내 auth 객체에 msg와 token 값 push
